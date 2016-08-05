@@ -1,14 +1,16 @@
 {% extends "base.html" %}
+{% load gravatar %}
 
 {% block content %}
 
     {% if posts %}
         {% for post in posts %}
+
             <div class="row post-preview">
                 <hr>
                 <div class="col-md-2 col-sm-3 text-center">
                     <a class="story-img" href="#">
-                        <img src="http://placehold.it/100" style="width:100px";
+                        <img src="{% gravatar_url post.author.email 150 %}" style="width:100px";
                              height: 100px; background-color: #12ABB2; color: #fff;" class="img-circle">
                     </a>
                     </div>
@@ -45,4 +47,19 @@
             </div>
         </div>
     </div>
+    <div class="pagination">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a href="?page={{ posts.previous_page_number }}" class="btn btn-default post-meta">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}" class="btn btn-default">next</a>
+        {% endif %}
+    </span>
+</div>
 {% endblock %}

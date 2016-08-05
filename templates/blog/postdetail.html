@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load gravatar %}
 
 {% block content %}
     <div class="container">
@@ -6,7 +7,7 @@
 
             <div class="col-md-2 col-sm-3 text-center">
                 <a class="story-img" href="#">
-                    <img src="http://placehold.it/100" style="width:100px" ;
+                    <img src="{% gravatar_url post.author.email 150 %}" style="width:100px" ;
                          height: 100px; background-color: #12ABB2; color: #fff;"
                     class="img-circle">
                 </a>
@@ -18,7 +19,7 @@
                         <figure class="img-container">
 
                             {% if post.image %}
-                                <img src="{{ mediaurl }}{{ post.image }}">
+                                <img src="{{ MEDIA_URL }}{{ post.image }}">
                             {% endif %}
                         </figure>
                         <p>{{ post.content | linebreaks }}</p>

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'emoticons',
     'storages',
     'blog',
+    'django_gravatar',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -71,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -116,6 +118,7 @@ AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "")
 AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "")
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_HOST = "s3-eu-west-1.amazonaws.com"
+AWS_S3_FILE_OVERWRITE = False
 
 
 STATICFILES_LOCATION = 'static'

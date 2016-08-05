@@ -5,17 +5,35 @@ from .forms import BlogPostForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 #returns blog posts with time < (lte) now to allow for unpublished posts with a future date
 #-published_date means descending order
 def blog_posts(request):
-    posts= Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    post_list= Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    paginator = Paginator(post_list, 5)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
     return render(request, "blog/blogposts.html", {'posts':posts})
 
 
 def blog_posts_by_views(request):
-    posts= Post.objects.filter(published_date__lte=timezone.now()).order_by('-views')
+    post_list= Post.objects.filter(published_date__lte=timezone.now()).order_by('-views')
+    paginator = Paginator(post_list, 5)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
     return render(request, "blog/blogposts.html", {'posts':posts})
 
 
@@ -28,7 +46,7 @@ def post_detail(request, id):
     post = get_object_or_404(Post, pk=id)
     post.views += 1
     post.save()
-    return render(request, "blog/postdetail.html", {'post':post, 'mediaurl':settings.MEDIA_URL})
+    return render(request, "blog/postdetail.html", {'post':post})
 
 @login_required(login_url='/login/')
 def new_post(request):
