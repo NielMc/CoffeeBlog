@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^post/$', views.new_post, name='new_post'),
     url(r'^blog/(?P<id>\d+)/edit$', views.edit_post, name="edit"),
     url(r'^popular/$', views.blog_posts_by_views, name="popular"),
+    url(r'^popular/$', views.blog_posts_by_tags, name="tags"),
 ]

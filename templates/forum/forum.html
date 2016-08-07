@@ -13,16 +13,18 @@
                     {% endautoescape %}
                 </a>
             </p>
-        <table>
+            <div class="table-responsive">
+        <table class="table forum table-sm">
             <tr>
-                <th>THREADS</th>
-                <th>POSTS</th>
+                <th class="cell-stat text-center hidden-xs hidden-sm">THREADS</th>
+                <th class="cell-stat text-center hidden-xs hidden-sm">POSTS</th>
             </tr>
             <tr>
-                <td>{{ subject.threads.count }}</td>
-                <td>{{ subject|get_total_subject_posts }}</td>
+                <td class="text-center hidden-xs hidden-sm">{{ subject.threads.count }}</td>
+                <td class="text-center hidden-xs hidden-sm">{{ subject|get_total_subject_posts }}</td>
             </tr>
         </table>
+            </div>
         </section>
     {% endfor %}
 {% endblock %}

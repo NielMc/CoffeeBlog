@@ -5,22 +5,22 @@
     <div class="row header">
         <div class="container">
             <h2>{{ thread.name }}</h2>
-            <div class="col-md-12">
-                <table class="table">
+            <div class="col-md-12 table-responsive">
+                <table class="table forum table-sm">
                     <tbody>
                         <tr>
-                            <th>CREATED</th>
-                            <th>OWNER</th>
-                            <th>LAST POST</th>
+                            <th class="cell-stat text-center hidden-xs hidden-sm">CREATED</th>
+                            <th class="cell-stat text-center hidden-xs hidden-sm">OWNER</th>
+                            <th class="cell-stat-2x hidden-xs hidden-sm">LAST POST</th>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="hidden-xs hidden-sm" >
                                 <time datetime="{{ thread.created_at }}">
                                     {{ thread.created_at | started_time }}
                                 </time>
                             </td>
-                            <td>{{ thread.user.username }}</td>
-                            <td>{% last_posted_user_name thread %}</td>
+                            <td class="text-center hidden-xs hidden-sm">{{ thread.user.username }}</td>
+                            <td class="text-center hidden-xs hidden-sm">{% last_posted_user_name thread %}</td>
                         </tr>
                     </tbody>
                 </table>

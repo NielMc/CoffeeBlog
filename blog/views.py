@@ -36,6 +36,18 @@ def blog_posts_by_views(request):
         posts = paginator.page(paginator.num_pages)
     return render(request, "blog/blogposts.html", {'posts':posts})
 
+def blog_posts_by_tags(request):
+    post_list= Post.objects.filter(published_date__lte=timezone.now()).order_by('-tags')
+    paginator = Paginator(post_list, 5)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    return render(request, "blog/blogposts.html", {'posts':posts})
+
 
 def post_detail(request, id):
     """

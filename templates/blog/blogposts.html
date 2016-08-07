@@ -43,14 +43,15 @@
         <div class="row">
             <div class="col-xs-9">
                 <p><button class="btn btn-default" onclick="location.href='{% url 'popular' %}'">Order by popularity</button>
-                <button class="btn btn-default" onclick="location.href='{% url 'post_list' %}'">Order by date</button></p>
+                <button class="btn btn-default" onclick="location.href='{% url 'post_list' %}'">Order by date</button>
+                <button class="btn btn-default" onclick="location.href='{% url 'tags' %}'">Order by tag</button></p>
             </div>
         </div>
     </div>
     <div class="pagination">
     <span class="step-links">
         {% if posts.has_previous %}
-            <a href="?page={{ posts.previous_page_number }}" class="btn btn-default post-meta">previous</a>
+            <a href="?page={{ posts.previous_page_number }}" class="post-meta"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></a>
         {% endif %}
 
         <span class="current">
@@ -58,7 +59,7 @@
         </span>
 
         {% if posts.has_next %}
-            <a href="?page={{ posts.next_page_number }}" class="btn btn-default">next</a>
+            <a href="?page={{ posts.next_page_number }}" class="post-meta"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a>
         {% endif %}
     </span>
 </div>
