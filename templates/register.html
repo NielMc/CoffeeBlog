@@ -8,7 +8,21 @@
 </script>
 <script type="text/javascript" src="{% static "js/stripe.js" %}"></script>
 {% endblock %}
-
+{% block header %}
+    <header class="intro-header" style="background-image: url('{% static 'images/P8062918.JPG'%}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Coffee Forum</h1>
+                        <hr class="small">
+                        <span class="subheading">A discussion about coffee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
 {%  block content %}
 <form role="form" method="post" id="register-form" action="{% url 'register' %}">
 <div id="credit-card-errors" style="display:none">

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% load staticfiles %}
-
+{% load static %}
 {% block head_js %}
     <script src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
     <script>
@@ -10,7 +10,21 @@
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 
 {% endblock %}
-
+{% block header %}
+    <header class="intro-header" style="background-image: url('{% static 'images/P8062918.JPG'%}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Coffee Forum</h1>
+                        <hr class="small">
+                        <span class="subheading">A discussion about coffee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
 {% block content %}
     <section>
         <div class="col-md-9">
@@ -31,6 +45,7 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn-primary">Post New Thread</button>
+                    <a href="#" onclick="history.go(-1)" class="btn btn-primary">Go Back</a>
                 </div>
             </form>
         </div>
