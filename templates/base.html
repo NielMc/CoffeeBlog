@@ -49,7 +49,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand" href="{% url 'index' %}">Coffee Forum</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -69,7 +69,7 @@
                         <a href="/forum/">Forum</a>
                     </li>
                     <li>
-                        <a href="/blog/">OurBlog</a>
+                        <a href="/blog/">Blog</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li>
@@ -96,20 +96,9 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url(https://s3-eu-west-1.amazonaws.com/nielsphotos/static/images/P8062918.JPG)">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Coffee Forum</h1>
-                        <hr class="small">
-                        <span class="subheading">A discussion about coffee</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    {% block header %}
 
+{% endblock %}
     <!-- Main Content -->
     <div class="container">
         <div class="row">
@@ -145,7 +134,7 @@
                             <a href="#">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>

@@ -1,4 +1,24 @@
 {%  extends 'base.html' %}
+{% load static %}
+{% block header %}
+    <header class="intro-header" style="background-image: url('{% static 'images/P8062918.JPG'%}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Coffee Forum</h1>
+                        <hr class="small">
+                        <span class="subheading">A discussion about coffee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
 {% block content %}
-<h2>Hello world</h2>
+<h2>Welcome to Coffee Forum.</h2>
+    <p>Do you have questions to ask or opinions to share on all things Coffee related?
+    If so this is the site for you. If this your first visit then click on the register button and enter an email address to begin.
+    A one off joining fee is taken allowing you to edit the blog and contribute to the forum. Payment is made using a secure Stripe method.
+    </p>
 {% endblock %}
