@@ -35,7 +35,7 @@
                                     {{ thread.created_at | started_time }}
                                 </time>
                             </td>
-                            <td class="text-center hidden-xs hidden-sm">{{ thread.user.username }}</td>
+                            <td class="text-center hidden-xs hidden-sm">{{ thread.user.first_name }}</td>
                             <td class="text-center hidden-xs hidden-sm">{% last_posted_user_name thread %}</td>
                         </tr>
                     </tbody>
@@ -73,9 +73,10 @@
             {% if user.is_authenticated %}
                 <p>
                     <a href="{% url 'new_post' thread.id %}" class="btn btn-primary">New post</a>
-                    <a href="#" onclick="history.go(-1)" class="btn btn-primary">Go Back</a>
+
                 </p>
             {% endif %}
+        <p><a href="#" onclick="history.go(-1)" class="btn btn-primary">Go Back</a></p>
         </div>
     </div>
     <div class="container">

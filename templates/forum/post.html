@@ -8,7 +8,7 @@
                          height: 100px; background-color: #12ABB2; color: #fff;"
                     class="img-circle">
                 </a></p>
-        <p>{{ post.user.username }}</p>
+        <p>{{ post.user.first_name }}</p>
         <p>{{ post.user.posts.count }} POSTS</p>
     </div>
     <hr>
@@ -18,6 +18,8 @@
                 {{ post.comment|emoticons }}
             {% endautoescape %}
         </div>
+<div class="clearfix"></div>
         {% include "forum/comment_details.html" %}
+
     </div>
 </section>
