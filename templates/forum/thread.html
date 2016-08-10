@@ -25,18 +25,18 @@
                 <table class="table forum table-sm">
                     <tbody>
                         <tr>
-                            <th class="cell-stat text-center ">CREATED</th>
-                            <th class="cell-stat text-center ">OWNER</th>
+                            <th class="cell-stat text-left ">CREATED</th>
+                            <th class="cell-stat text-left ">OWNER</th>
                             <th class="cell-stat-2x ">LAST POST</th>
                         </tr>
                         <tr>
-                            <td class="hidden-xs hidden-sm" >
+                            <td class="text-left" >
                                 <time datetime="{{ thread.created_at }}">
                                     {{ thread.created_at | started_time }}
                                 </time>
                             </td>
-                            <td class="text-center hidden-xs hidden-sm">{{ thread.user.first_name }}</td>
-                            <td class="text-center hidden-xs hidden-sm">{% last_posted_user_name thread %}</td>
+                            <td class="text-left">{{ thread.user.first_name }}</td>
+                            <td class="text-left">{% last_posted_user_name thread %}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -22,7 +22,7 @@ def started_time(created_at):
 def last_posted_user_name(thread):
     posts = thread.posts.all().order_by('-created_at')
     if posts.count() > 0:
-        return posts[posts.count()-1].user.username
+        return posts[posts.count()-1].user.first_name
     else:
         return "Nothing Posted"
 
