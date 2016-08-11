@@ -23,7 +23,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././static/mail/contact_me.php",
+                url: "https://nielsphotos.s3.amazonaws.com/static/mail/contact_me.php",
                 type: "POST",
                 data: {
                     name: name,
