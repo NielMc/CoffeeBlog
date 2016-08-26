@@ -25,9 +25,10 @@
     <link href="{% static 'css/clean-blog.css' %}" rel="stylesheet" type="text/css">
 
     <!-- Custom Fonts -->
-    <link rel="stylesheet"  type="text/css" href="{% static 'css/font-awesome-4.5.0/css/font-awesome.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome-4.5.0/css/font-awesome.css' %}">
 
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i'
+          rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,45 +42,46 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="{% url 'index' %}">Coffee Forum</a>
-            </div>
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="{% url 'index' %}">Coffee Forum</a>
+        </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="{% url 'index' %}">Home</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'about' %}">About</a>
-                    </li>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{% url 'index' %}">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}">About</a>
+                </li>
 
-                    <li>
-                        <a href="{% url 'contact' %}">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/forum/">Forum</a>
-                    </li>
-                    <li>
-                        <a href="/blog/">Blog</a>
-                    </li>
-                    {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li>
+                    <a href="/forum/">Forum</a>
+                </li>
+                <li>
+                    <a href="/blog/">Blog</a>
+                </li>
+                {% if user.is_authenticated %}
                     <li>
                         <a href="{% url 'logout' %}">Logout</a>
                     </li>
                     <li>
                         <a href="{% url 'profile' %}">Profile</a>
                     </li>
-                    {% else %}
+                {% else %}
                     <li>
                         <a href="{% url 'login' %}">Login</a>
                     </li>
@@ -87,80 +89,80 @@
                     <li>
                         <a href="{% url 'register' %}">Register</a>
                     </li>
-                    {% endif %}
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+                {% endif %}
+            </ul>
         </div>
-        <!-- /.container -->
-    </nav>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
-    <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    {% block header %}
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+{% block header %}
 
 {% endblock %}
-    <!-- Main Content -->
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-preview">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <hr>
+
+
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<!-- Footer -->
+<footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-                <hr>
-
-
-            </div>
-        </div>
-    </div>
-
-    <hr>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="http://www.twitter.com/nielmce">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="http://www.twitter.com/nielmce">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
                                 </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://ie.linkedin.com/in/niel-mcewen-43b3a0">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://ie.linkedin.com/in/niel-mcewen-43b3a0">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
                                 </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/NielMc">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/NielMc">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
                                 </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted">Copyright &copy; 2016</p>
-                </div>
+                        </a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; 2016</p>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
 
-    <!-- Contact Form JavaScript -->
-    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
-    <script src="{% static 'js/contact_me.js' %}"></script>
+<!-- Contact Form JavaScript -->
+<script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+<script src="{% static 'js/contact_me.js' %}"></script>
 
-    <!-- Theme JavaScript -->
-    <script src="{% static 'js/clean-blog.min.js' %}"></script>
+<!-- Theme JavaScript -->
+<script src="{% static 'js/clean-blog.min.js' %}"></script>
 
 </body>
 

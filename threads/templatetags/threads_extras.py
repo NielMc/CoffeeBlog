@@ -22,9 +22,10 @@ def started_time(created_at):
 def last_posted_user_name(thread):
     posts = thread.posts.all().order_by('-created_at')
     if posts.count() > 0:
-        return posts[posts.count()-1].user.first_name
+        return posts[posts.count() - 1].user.first_name
     else:
         return "Nothing Posted"
+
 
 @register.simple_tag
 def user_vote_button(thread, subject, user):
@@ -45,6 +46,7 @@ def user_vote_button(thread, subject, user):
 
             return link
     return ""
+
 
 @register.filter
 def vote_percentage(subject):

@@ -58,8 +58,6 @@ def new_thread(request, subject_id):
         poll_form = PollForm()
         poll_subject_formset = poll_subject_formset()
 
-
-
     args = {
         'thread_form': thread_form,
         'post_form': post_form,
@@ -121,7 +119,7 @@ def edit_post(request, thread_id, post_id):
         if form.is_valid():
             form.save()
             messages.success(request,
-                            "You have updated your thread!")
+                             "You have updated your thread!")
 
             return redirect(reverse('thread', args={thread.id}))
     else:
@@ -130,7 +128,7 @@ def edit_post(request, thread_id, post_id):
     args = {
         'form': form,
         'form_action': reverse('edit_post', kwargs={
-                               "thread_id": thread.id, "post_id": post.id}),
+            "thread_id": thread.id, "post_id": post.id}),
         'button_text': 'Update Post'
     }
 
@@ -148,6 +146,7 @@ def delete_post(request, post_id):
     messages.success(request, "Your post was deleted!")
 
     return redirect(reverse('thread', args={thread_id}))
+
 
 @login_required
 def thread_vote(request, thread_id, subject_id):

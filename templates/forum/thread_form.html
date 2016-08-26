@@ -11,7 +11,7 @@
 
 {% endblock %}
 {% block header %}
-    <header class="intro-header" style="background-image: url('{% static 'images/P8062918.JPG'%}')">
+    <header class="intro-header" style="background-image: url('{% static 'images/P8062918.JPG' %}')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -31,15 +31,15 @@
             <form method="post" action="{% url 'new_thread' subject.id %}">
                 {% csrf_token %}
                 <div class="form-group">
-                {{ thread_form | as_bootstrap }}
-                <hr>
-                {{ post_form | as_bootstrap }}
-        </div>
+                    {{ thread_form | as_bootstrap }}
+                    <hr>
+                    {{ post_form | as_bootstrap }}
+                </div>
                 <div id="poll_form" class="form-group">
                     {{ poll_form | as_bootstrap }}
                     {{ poll_subject_formset.management_form }}
                     {% for poll_subject_form in poll_subject_formset %}
-                    {{ poll_subject_form | as_bootstrap }}
+                        {{ poll_subject_form | as_bootstrap }}
                     {% endfor %}
 
                 </div>
@@ -52,20 +52,20 @@
     </section>
 
     <script>
-    $(function(){
-        if (!$('#id_is_a_poll').is('checked')){
-            $('#poll_form').hide()
-        }
-        $('#id_is_a_poll').click(function (el) {
-            var poll_form = $('#poll_form')
-
-            if (poll_form.is(":visible" )) {
-                poll_form.hide()
-            }else{
-                poll_form.show()
+        $(function () {
+            if (!$('#id_is_a_poll').is('checked')) {
+                $('#poll_form').hide()
             }
+            $('#id_is_a_poll').click(function (el) {
+                var poll_form = $('#poll_form')
 
+                if (poll_form.is(":visible")) {
+                    poll_form.hide()
+                } else {
+                    poll_form.show()
+                }
+
+            })
         })
-    })
     </script>
 {% endblock %}

@@ -2,7 +2,7 @@
 {% load threads_extras %}
 {% load static %}
 {% block header %}
-    <header class="intro-header" style="background-image: url('{% static 'images/P8062918.JPG'%}')">
+    <header class="intro-header" style="background-image: url('{% static 'images/P8062918.JPG' %}')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -17,19 +17,19 @@
     </header>
 {% endblock %}
 {% block content %}
-    {% load bootstrap_tags %}
+{% load bootstrap_tags %}
 
-    {% for subject in subjects %}
-        <section class="subject">
-            <h2><a href="{% url 'threads' subject.id %}">{{ subject.name }}</a></h2>
-            <p>
-                <a href="{% url 'threads' subject.id %}">
-                    {% autoescape off %}
-                        {{ subject.description }}
-                    {% endautoescape %}
-                </a>
-            </p>
-            <div class="table-responsive">
+{% for subject in subjects %}
+<section class="subject">
+    <h2><a href="{% url 'threads' subject.id %}">{{ subject.name }}</a></h2>
+    <p>
+        <a href="{% url 'threads' subject.id %}">
+            {% autoescape off %}
+            {{ subject.description }}
+            {% endautoescape %}
+        </a>
+    </p>
+    <div class="table-responsive">
         <table class="table forum table-sm">
             <tr>
                 <th class="cell-stat text-center ">THREADS</th>
@@ -40,7 +40,7 @@
                 <td class="text-center ">{{ subject|get_total_subject_posts }}</td>
             </tr>
         </table>
-            </div>
-        </section>
-    {% endfor %}
+    </div>
+</section>
+{% endfor %}
 {% endblock %}

@@ -4,10 +4,10 @@
 <section class="row comment col-md-9">
     <div class="col-md-3 comment-profile">
         <p><a class="story-img" href="#">
-                    <img src="{% gravatar_url post.user.email 150 %}" style="width:100px" ;
-                         height: 100px; background-color: #12ABB2; color: #fff;"
-                    class="img-circle">
-                </a></p>
+            <img src="{% gravatar_url post.user.email 150 %}" style="width:100px" ;
+                 height: 100px; background-color: #12ABB2; color: #fff;"
+            class="img-circle">
+        </a></p>
         <p>{{ post.user.first_name }}</p>
         <p>{{ post.user.posts.count }} POSTS</p>
     </div>
@@ -15,10 +15,10 @@
     <div class="col-md-9">
         <div class="comment-content">
             {% autoescape off %}
-                {{ post.comment|emoticons }}
+            {{ post.comment|emoticons }}
             {% endautoescape %}
         </div>
-<div class="clearfix"></div>
+        <div class="clearfix"></div>
         {% include "forum/comment_details.html" %}
 
     </div>
