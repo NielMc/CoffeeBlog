@@ -38,6 +38,7 @@
                             {% endif %}
                         </figure>
                         <p>{{ post.content | linebreaks }}</p>
+                        <p>{{SSID}}</p>
                         <p>
                             <button class="btn btn-default" onclick="location.href='{% url 'post_list' %}'">Back to
                                 Blog
