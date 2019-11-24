@@ -55,11 +55,10 @@ def post_detail(request, id):
     template. Or return a 404 error if the post is not found
 
     """
-    SSID = request.META.get('REMOTE_ADDR')
     post = get_object_or_404(Post, pk=id)
     post.views += 1
     post.save()
-    return render(request, "blog/postdetail.html", {'post':post','SSID': SSID})
+    return render(request, "blog/postdetail.html", {'post':post'})
 
 @login_required(login_url='/login/')
 def new_post(request):
