@@ -59,7 +59,7 @@ def post_detail(request, id):
     post = get_object_or_404(Post, pk=id)
     post.views += 1
     post.save()
-    return render(request, "blog/postdetail.html", {'post':post',SSID': SSID})
+    return render(request, "blog/postdetail.html", {'post':post','SSID': SSID})
 
 @login_required(login_url='/login/')
 def new_post(request):
