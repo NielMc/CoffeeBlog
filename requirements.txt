@@ -19,7 +19,7 @@ mysql-python==1.2.5
 pbr==1.10.0
 Pillow==2.9.0
 python-dateutil==2.5.3
-requests==2.10.0
+requests==2.20.0
 six==1.10.0
 sqlparse==0.2.0
 stripe==1.37.0
