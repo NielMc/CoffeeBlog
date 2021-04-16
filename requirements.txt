@@ -4,7 +4,7 @@ boto==2.42.0
 dj-database-url==0.4.1
 Django==1.11.23
 django-cors-headers==1.1.0
-django-debug-toolbar==1.5
+django-debug-toolbar==1.11.1
 django-disqus==0.5
 django-emoticons==1.2
 django-forms-bootstrap==3.0.1
